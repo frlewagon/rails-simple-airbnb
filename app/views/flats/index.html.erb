@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row" justify-content-even>
+    <% @flats.each do |flat| %>
+      <div class="card mt-3 mx-3" style="width: 24rem;">
+        <img src=<%= flat.url_banner %>  class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= flat.name %></h5>
+          <p class="card-text"><%= flat.description %></p>
+          <p><%= flat.address %></p>
+        <ul class="list-inline list-group-flush">
+          <li class="list-inline-item"><%= flat.price_per_night %></li>
+          <li class="list-inline-item"><%= flat.number_of_guests %></li>
+        </ul>
+        </div>
+        <div class="card-body">
+          <%= link_to "More info", flat_path(flat), class: "text-primary"  %>
+          <%= link_to "Edit", edit_flat_path(flat), class: "text-warning"  %>
+          <%= link_to "Remove", flats_path, class: "text-danger"  %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
